@@ -2,6 +2,7 @@ import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import App from './App';
 import { chakraTheme } from './configs/chakra-theme';
@@ -17,7 +18,9 @@ root.render(
     <QueryClientProvider client={queryClient}>
       <ChakraProvider theme={chakraTheme}>
         <RecoilRoot>
-          <App />
+          <BrowserRouter>
+            <App />
+          </BrowserRouter>
         </RecoilRoot>
       </ChakraProvider>
     </QueryClientProvider>
