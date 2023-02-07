@@ -22,7 +22,9 @@ const Menu = () => {
                       <Flex w={5}>
                         <Icon as={icon} />
                       </Flex>
-                      <Text as="span">{title}</Text>
+                      <Text as="span" color="#a2a3b7">
+                        {title}
+                      </Text>
                     </Flex>
                   </Link>
                 );
