@@ -1,4 +1,4 @@
-import { FaHome } from 'react-icons/fa';
+import { FaHome, FaPalette } from 'react-icons/fa';
 
 export const MENU_DATA = [
   {
@@ -6,7 +6,7 @@ export const MENU_DATA = [
     menu: [
       {
         title: 'Bảng điều khiển',
-        icon: FaHome,
+        icon: FaPalette,
         route: '/'
       }
     ]
@@ -38,3 +38,5 @@ export const MENU_DATA = [
     ]
   }
 ];
+
+export const MENU_ROUTE_DATA = MENU_DATA.map((item) => item.menu).flat();
