@@ -103,7 +103,7 @@ const MenuItem = ({ item, level = 1 }) => {
           <Icon
             ml={2}
             as={FaChevronRight}
-            color={showSubMenu ? '#FFF' : '#a2a3b7'}
+            color="#a2a3b7"
             fontSize={12}
             transform={showSubMenu ? 'rotate(90deg)' : undefined}
             _groupHover={{ color: '#FFF' }}
