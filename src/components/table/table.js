@@ -5,10 +5,6 @@ import { memo } from 'react';
 const Table = (props) => {
   const { header, data, renderItem, renderAction } = props;
 
-  if (!Array.isArray(data) || !data.length) {
-    return null;
-  }
-
   return (
     <TableContainer>
       <ChakraTable variant="unstyled" border="1px solid #e6e6e6">
@@ -48,10 +44,12 @@ const Table = (props) => {
 };
 
 Table.propTypes = {
-  header: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    field: PropTypes.string.isRequired
-  }).isRequired,
+  header: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      field: PropTypes.string.isRequired
+    })
+  ).isRequired,
   data: PropTypes.arrayOf(PropTypes.object).isRequired,
   renderItem: PropTypes.func, // (field: string, item: ObjectData) => void
   renderAction: PropTypes.func // (item: ObjectData) => void

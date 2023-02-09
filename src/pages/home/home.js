@@ -1,6 +1,6 @@
 import { Box, Flex, Grid, GridItem, Text } from '@chakra-ui/react';
-import Search from 'components/search';
 import Table from 'components/table';
+import { ButtonCreate, Search } from 'components/table-control';
 import { useCallback } from 'react';
 
 const Home = () => {
@@ -35,7 +35,10 @@ const Home = () => {
 
   return (
     <Flex direction="column">
-      <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+      <Flex justify="flex-end">
+        <ButtonCreate route="/create" />
+      </Flex>
+      <Grid templateColumns="repeat(4, 1fr)" gap={6} mt={5}>
         <GridItem w="100%">
           <Search />
         </GridItem>
