@@ -75,7 +75,7 @@ const MenuItem = ({ item, level = 1 }) => {
           pl={5}
           pr={3.5}
           justifyContent="space-between"
-          bgColor={showSubMenu ? 'main.2' : 'main.1'}
+          bgColor="main.1"
           _hover={{ bgColor: 'main.2' }}
           transitionDuration="250ms"
           data-group
@@ -84,12 +84,7 @@ const MenuItem = ({ item, level = 1 }) => {
           <Flex align="center" gap={3}>
             <Flex w="18px" pl={icon ? 0 : 4}>
               {!!icon ? (
-                <Icon
-                  as={icon}
-                  color={showSubMenu ? '#3699FF' : '#a2a3b7'}
-                  _groupHover={{ color: '#3699FF' }}
-                  transitionDuration="250ms"
-                />
+                <Icon as={icon} color="#a2a3b7" _groupHover={{ color: '#3699FF' }} transitionDuration="250ms" />
               ) : (
                 <Box
                   as="span"
@@ -101,13 +96,7 @@ const MenuItem = ({ item, level = 1 }) => {
                 />
               )}
             </Flex>
-            <Text
-              as="span"
-              noOfLines={1}
-              color={showSubMenu ? '#FFF' : '#a2a3b7'}
-              _groupHover={{ color: '#FFF' }}
-              transitionDuration="250ms"
-            >
+            <Text as="span" noOfLines={1} color="#a2a3b7" _groupHover={{ color: '#FFF' }} transitionDuration="250ms">
               {title}
             </Text>
           </Flex>
