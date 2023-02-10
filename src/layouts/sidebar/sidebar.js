@@ -26,9 +26,9 @@ const Sidebar = () => {
       color="#f2f2f2"
       transitionDuration="300ms"
     >
-      <Flex h="64px" w="full" bgColor="main.2" align="center" px={5} justify="center">
+      <Flex h="64px" w="full" bgColor="main.2" align="center" px={5} justify={showSidebar ? 'space-between' : 'center'}>
         {showSidebar && (
-          <Link to="/" style={{ width: '100%', height: '100%' }}>
+          <Link to="/" style={{ width: 'auto', height: 'auto' }}>
             <Flex align="center" justify="center" gap={3} h="full">
               <Image src={Logo} boxSize={7} opacity={0.95} />
               <Heading as="h2" fontSize={18} fontWeight={600} noOfLines={1}>
@@ -43,7 +43,7 @@ const Sidebar = () => {
           bgColor="transparent"
           _hover={{ bgColor: 'transparent' }}
           _active={{ bgColor: 'transparent' }}
-          p={0}
+          p={2}
           minW={0}
           data-group
           transitionDuration="300ms"
