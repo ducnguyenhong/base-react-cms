@@ -27,7 +27,7 @@ const ActionDelete = (props) => {
       <Button
         bgColor="#e6e6e6"
         borderRadius={6}
-        w={9}
+        w={10}
         h={9}
         p={0}
         minW={0}

@@ -26,7 +26,7 @@ const Sidebar = () => {
       color="#f2f2f2"
       transitionDuration="300ms"
     >
-      <Flex h="64px" w="full" bgColor="main.2" align="center" px={showSidebar ? 5 : 8}>
+      <Flex h="64px" w="full" bgColor="main.2" align="center" px={5} justify="center">
         {showSidebar && (
           <Link to="/" style={{ width: '100%', height: '100%' }}>
             <Flex align="center" justify="center" gap={3} h="full">

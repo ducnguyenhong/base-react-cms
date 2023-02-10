@@ -11,7 +11,7 @@ const ActionView = (props) => {
       <Flex
         bgColor="#e6e6e6"
         borderRadius={6}
-        w={9}
+        w={10}
         h={9}
         align="center"
         justify="center"

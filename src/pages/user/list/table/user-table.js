@@ -1,6 +1,6 @@
-import { Box, Text } from '@chakra-ui/react';
+import { Box, Flex, Text } from '@chakra-ui/react';
 import Table from 'components/table';
-import { Action } from 'components/table-control';
+import { Action, Pagination } from 'components/table-control';
 import { memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import BirthDate from './custom-field/birth-date';
@@ -76,6 +76,9 @@ const UserTable = () => {
         renderItem={renderItem}
         renderAction={(item) => <Action item={item} route="users" />}
       />
+      <Flex justify="flex-end" my={10}>
+        <Pagination allPage={3} currentPage={1} onChange={() => {}} />
+      </Flex>
     </Box>
   );
 };

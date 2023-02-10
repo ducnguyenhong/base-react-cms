@@ -13,7 +13,7 @@ const Section = () => {
   }
 
   return (
-    <Flex h={16} w="full" borderBottom="1px solid #d9d9d9" px={8} align="center">
+    <Flex h={16} w="full" borderBottom="1px solid #e6e6e6" px={8} align="center">
       <Heading as="h3" fontSize={15} textTransform="uppercase">
         {currentRoute.title}
       </Heading>

@@ -16,7 +16,7 @@ const App = () => {
         <main style={{ width: '100%' }}>
           <Header />
           <Box bgColor="#EEF0F8" p={10}>
-            <Box bgColor="#FFF" boxShadow="base" minH="calc(100vh - 134px)" borderRadius={4}>
+            <Box bgColor="#FFF" minH="calc(100vh - 134px)" borderRadius={4}>
               <Section />
               <Box px={8} py={6}>
                 <AppRoute />
