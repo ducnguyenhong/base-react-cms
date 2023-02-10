@@ -17,7 +17,7 @@ export const MENU_DATA = [
       {
         title: 'Danh sách người dùng',
         icon: FaHome,
-        route: '/users'
+        route: '/users22f'
       },
       {
         title: 'Hành động',
@@ -25,13 +25,20 @@ export const MENU_DATA = [
         subs: [
           {
             title: 'Danh sách người dùng 2',
-            icon: FaHome,
             route: '/users'
           },
           {
-            title: 'Danh sách người dùng 3',
-            icon: FaHome,
-            route: '/users'
+            title: 'Danh sách người dùng 22',
+            subs: [
+              {
+                title: 'Danh sách người dùng 3',
+                route: '/users22'
+              },
+              {
+                title: 'Danh sách người dùng 33',
+                route: '/users223'
+              }
+            ]
           }
         ]
       }
