@@ -4,7 +4,7 @@ import BreadCrumb from './breadcrumb';
 
 const Header = () => {
   return (
-    <Flex bg="#FFF" w="full" h="64px" boxShadow="base" px={10} align="center">
+    <Flex pos="sticky" top={0} left={0} bg="#FFF" w="full" h="64px" boxShadow="base" px={10} align="center">
       <BreadCrumb />
     </Flex>
   );

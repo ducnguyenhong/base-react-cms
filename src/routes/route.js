@@ -1,8 +1,6 @@
-import { lazy } from 'react';
+import Home from 'pages/home';
+import { UserList } from 'pages/user';
 import { Route, Routes } from 'react-router-dom';
-
-const Home = lazy(() => import('pages/home'));
-const UserList = lazy(() => import('pages/user/list'));
 
 const AppRoute = () => {
   return (
