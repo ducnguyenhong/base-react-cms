@@ -7,7 +7,7 @@ const UserList = () => {
   return (
     <Flex direction="column">
       <Flex justify="flex-end">
-        <ButtonCreate route="/create" />
+        <ButtonCreate route="/users/create" />
       </Flex>
       <UserFilter />
       <UserTable />
