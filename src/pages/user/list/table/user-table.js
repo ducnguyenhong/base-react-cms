@@ -2,8 +2,10 @@ import { Box, Text } from '@chakra-ui/react';
 import Table from 'components/table';
 import { Action } from 'components/table-control';
 import { memo, useCallback } from 'react';
+import { Link } from 'react-router-dom';
 import BirthDate from './custom-field/birth-date';
 import Contact from './custom-field/contact';
+import FullName from './custom-field/full-name';
 
 const UserTable = () => {
   const header = [
@@ -32,6 +34,7 @@ const UserTable = () => {
   const data = Array.from(Array(10).keys()).map((item) => ({
     id: item + 1,
     fullName: 'Nguyễn Hồng Đức',
+    username: 'protontech',
     avatar: '',
     gender: 'MALE',
     birthDate: 944845200000,
@@ -41,11 +44,26 @@ const UserTable = () => {
   }));
 
   const renderItem = useCallback((field, item) => {
+    if (!item || !item[field]) {
+      return null;
+    }
     if (field === 'birthDate') {
       return <BirthDate item={item} />;
     }
     if (field === 'phone') {
       return <Contact item={item} />;
+    }
+    if (field === 'fullName') {
+      return <FullName item={item} />;
+    }
+    if (field === 'id') {
+      return (
+        <Link to={`/users/detail/${item.id}`}>
+          <Text as="span" fontWeight={600}>
+            {item.id}
+          </Text>
+        </Link>
+      );
     }
     return <Text>{item[field]}</Text>;
   }, []);
