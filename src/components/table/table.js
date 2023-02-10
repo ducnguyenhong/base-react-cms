@@ -28,7 +28,7 @@ const Table = (props) => {
         <Tbody>
           {data.map((dItem, dIndex) => {
             return (
-              <Tr key={`tr_${dIndex}`} bgColor={dIndex % 2 !== 0 ? '#f2f2f2' : '#FFF'}>
+              <Tr key={`tr_${dIndex}`} bgColor={dIndex % 2 !== 0 ? '#f4f4f4' : '#FFF'} transitionDuration="250ms">
                 {header.map((hItem) => {
                   const { field } = hItem;
                   return <Td key={`td_${field}_${dIndex}`}>{renderItem ? renderItem(field, dItem) : dItem[field]}</Td>;

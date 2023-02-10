@@ -1,4 +1,4 @@
-import { FaHome, FaPalette } from 'react-icons/fa';
+import { FaHome, FaPalette, FaUserFriends } from 'react-icons/fa';
 
 export const MENU_DATA = [
   {
@@ -16,27 +16,27 @@ export const MENU_DATA = [
     menu: [
       {
         title: 'Danh sách người dùng',
-        icon: FaHome,
-        route: '/users22f'
+        icon: FaUserFriends,
+        route: '/users'
       },
       {
-        title: 'Hành động',
+        title: 'Menu level 1',
         icon: FaHome,
         subs: [
           {
-            title: 'Danh sách người dùng 2',
-            route: '/users'
+            title: 'Page level 2',
+            route: '/page-level-2'
           },
           {
-            title: 'Danh sách người dùng 22',
+            title: 'Menu level 2',
             subs: [
               {
-                title: 'Danh sách người dùng 3',
-                route: '/users22'
+                title: 'Page level 3a',
+                route: '/page-level-3a'
               },
               {
-                title: 'Danh sách người dùng 33',
-                route: '/users223'
+                title: 'Page level 3b',
+                route: '/page-level-3b'
               }
             ]
           }
