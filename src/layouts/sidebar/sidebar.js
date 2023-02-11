@@ -62,7 +62,7 @@ const Sidebar = () => {
         <Menu />
       </Flex>
       <Flex h="45px" w="full" borderTop="1px solid #333" align="center" justify="center" fontSize={16}>
-        <Text color="#808080">
+        <Text color="#808080" noOfLines={1}>
           {showSidebar && 'Version: '}
           <Text as="span" fontWeight={500}>
             {packageJson.version}

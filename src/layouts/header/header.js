@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { memo } from 'react';
 import BreadCrumb from './breadcrumb';
+import UserInfo from './user-info';
 
 const Header = () => {
   return (
@@ -14,9 +15,11 @@ const Header = () => {
       h="64px"
       borderBottom="1px solid #e6e6e6"
       px={10}
+      justify="space-between"
       align="center"
     >
       <BreadCrumb />
+      <UserInfo />
     </Flex>
   );
 };

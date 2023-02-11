@@ -46,4 +46,11 @@ export const MENU_DATA = [
   }
 ];
 
-export const MENU_ROUTE_DATA = MENU_DATA.map((item) => item.menu).flat();
+export const MENU_ROUTE_DATA = MENU_DATA.map((item) => item.menu)
+  .flat()
+  .map((item) => (item.subs ? item.subs.map((itemSub) => ({ ...itemSub, parent: { title: item.title } })) : item))
+  .flat()
+  .map((item) =>
+    item.subs ? item.subs.map((itemSub) => ({ ...itemSub, parent: { title: item.title, parent: item.parent } })) : item
+  )
+  .flat();
