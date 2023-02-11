@@ -32,7 +32,7 @@ const Sidebar = () => {
             <Flex align="center" justify="center" gap={3} h="full">
               <Image src={Logo} boxSize={7} opacity={0.95} />
               <Heading as="h2" fontSize={18} fontWeight={600} noOfLines={1}>
-                CMS Website
+                CMS Pro
               </Heading>
             </Flex>
           </Link>

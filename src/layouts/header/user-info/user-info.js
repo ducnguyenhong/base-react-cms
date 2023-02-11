@@ -12,11 +12,17 @@ import {
   Text
 } from '@chakra-ui/react';
 import ImgUserAvatar from 'assets/images/user-avatar.png';
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 import { FaBell, FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useSetRecoilState } from 'recoil';
+import { tokenState } from 'state-manage/recoil';
 
 const UserInfo = () => {
+  const setToken = useSetRecoilState(tokenState);
+
+  const onLogout = useCallback(() => setToken(''), [setToken]);
+
   return (
     <Popover placement="bottom-end">
       <PopoverTrigger>
@@ -67,7 +73,9 @@ const UserInfo = () => {
         </PopoverBody>
         <PopoverFooter>
           <Flex p={3}>
-            <Button colorScheme="red">Đăng xuất</Button>
+            <Button colorScheme="red" onClick={onLogout}>
+              Đăng xuất
+            </Button>
           </Flex>
         </PopoverFooter>
       </PopoverContent>
