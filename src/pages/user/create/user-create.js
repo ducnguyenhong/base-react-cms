@@ -29,7 +29,7 @@ const UserCreate = () => {
     <Flex py={10}>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
-          <Flex w={1 / 3} direction="column" mx="auto" gap={10}>
+          <Flex w={{ xs: 'full', md: 2 / 3, lg: 1 / 3 }} direction="column" mx="auto" gap={10}>
             <Flex direction="column">
               <FieldLabel title="Ảnh đại diện" />
               <UploadImage />
