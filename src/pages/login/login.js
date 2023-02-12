@@ -2,18 +2,20 @@ import { Button, Flex, Heading, Icon, Image, Input, InputGroup, InputLeftElement
 import ImgLoginIntro from 'assets/images/login-intro.png';
 import Logo from 'assets/images/logo.png';
 import { useCallback, useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet';
 import { useForm } from 'react-hook-form';
 import { FaEye, FaEyeSlash, FaLock, FaUserAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { tokenState } from 'state-manage/recoil';
-import { showToast } from 'utils/helper';
+import { showToast, useMediaQuery } from 'utils/helper';
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [token, setToken] = useRecoilState(tokenState);
   const navigate = useNavigate();
+  const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
 
   const {
     register,
@@ -56,11 +58,24 @@ const Login = () => {
 
   return (
     <Flex h="100vh">
-      <Flex w="35%" h="full">
-        <Image src={ImgLoginIntro} objectFit="cover" h="full" />
-      </Flex>
-      <Flex w="65%" h="full" direction="column" align="center" justify="center">
-        <Flex flex={1} justify="center" align="center" direction="column" gap={12} w="400px">
+      <Helmet>
+        <title>Đăng nhập | CMS Pro</title>
+      </Helmet>
+      {!isMobileAndTablet && (
+        <Flex w="35%" h="full">
+          <Image src={ImgLoginIntro} objectFit="cover" h="full" />
+        </Flex>
+      )}
+      <Flex w={{ xs: 'full', lg: '65%' }} h="full" direction="column" align="center" justify="center">
+        <Flex
+          flex={1}
+          justify="center"
+          align="center"
+          direction="column"
+          gap={12}
+          w={{ xs: 'full', lg: '400px' }}
+          px={{ xs: 10, md: 40, lg: 0 }}
+        >
           <Flex align="center" gap={4}>
             <Image src={Logo} w={16} />
             <Heading as="h3">CMS Pro</Heading>
@@ -81,7 +96,7 @@ const Login = () => {
                     borderColor="#CCC"
                     _focus={{ border: 'none' }}
                     _hover={{ borderColor: '#b3b3b3' }}
-                    {...register('username', { required: 'Vui lòng nhập mật khẩu' })}
+                    {...register('username', { required: 'Vui lòng nhập tài khoản' })}
                   />
                 </InputGroup>
                 {errors && errors.username && <Text color="red">{errors.username.message}</Text>}
