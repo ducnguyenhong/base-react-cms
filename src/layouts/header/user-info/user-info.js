@@ -17,28 +17,31 @@ import { FaBell, FaUserCircle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { tokenState } from 'state-manage/recoil';
+import { useMediaQuery } from 'utils/helper';
 
 const UserInfo = () => {
   const setToken = useSetRecoilState(tokenState);
-
   const onLogout = useCallback(() => setToken(''), [setToken]);
+  const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
 
   return (
     <Popover placement="bottom-end">
       <PopoverTrigger>
         <Button
-          h={14}
+          h={{ xs: 10, lg: 14 }}
           gap={2.5}
-          px={3}
-          borderRadius={10}
+          px={{ xs: 0, lg: 3 }}
+          borderRadius={{ xs: 'full', lg: 10 }}
           bgColor="#f7f7f8"
-          border="1px solid #f2f2f2"
+          border={{ xs: 'none', lg: '1px solid #f2f2f2' }}
           _hover={{ bgColor: '#f2f2f2' }}
         >
           <Image src="" fallbackSrc={ImgUserAvatar} boxSize={10} borderRadius="full" />
-          <Text as="span" fontWeight={600}>
-            Administrator
-          </Text>
+          {!isMobileAndTablet && (
+            <Text as="span" fontWeight={600}>
+              Administrator
+            </Text>
+          )}
         </Button>
       </PopoverTrigger>
       <PopoverContent w="350px">

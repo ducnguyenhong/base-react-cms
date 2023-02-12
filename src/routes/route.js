@@ -1,4 +1,4 @@
-import Main from 'layouts/main';
+import { Main } from 'layouts';
 import Example from 'pages/example';
 import Home from 'pages/home';
 import Login from 'pages/login';

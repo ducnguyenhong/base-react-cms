@@ -55,11 +55,11 @@ const Pagination = (props) => {
   }, [allPage, currentPage]);
 
   return (
-    <Flex gap={2} align="center">
+    <Flex gap={2} align="center" flexWrap="wrap" justify="center">
       <Button
         minW={0}
-        w="40px"
-        h="36px"
+        w={{ xs: '38px', md: '40px' }}
+        h={{ xs: '34px', md: '36px' }}
         bgColor="#f5f5f5"
         border="1px solid #f2f2f2"
         _hover={{ bgColor: '#009dff' }}
@@ -79,8 +79,8 @@ const Pagination = (props) => {
 
       <Button
         minW={0}
-        w="40px"
-        h="36px"
+        w={{ xs: '38px', md: '40px' }}
+        h={{ xs: '34px', md: '36px' }}
         bgColor="#f5f5f5"
         border="1px solid #f2f2f2"
         _hover={{ bgColor: '#009dff' }}
@@ -102,8 +102,8 @@ const Pagination = (props) => {
         <Button
           key={item}
           minW={0}
-          w="40px"
-          h="36px"
+          w={{ xs: '38px', md: '40px' }}
+          h={{ xs: '34px', md: '36px' }}
           bgColor={currentPage === item ? '#009dff' : '#f5f5f5'}
           border="1px solid #f2f2f2"
           _hover={{ bgColor: '#009dff' }}
@@ -127,8 +127,8 @@ const Pagination = (props) => {
 
       <Button
         minW={0}
-        w="40px"
-        h="36px"
+        w={{ xs: '38px', md: '40px' }}
+        h={{ xs: '34px', md: '36px' }}
         bgColor="#f5f5f5"
         border="1px solid #f2f2f2"
         _hover={{ bgColor: '#009dff' }}
@@ -148,8 +148,8 @@ const Pagination = (props) => {
 
       <Button
         minW={0}
-        w="40px"
-        h="36px"
+        w={{ xs: '38px', md: '40px' }}
+        h={{ xs: '34px', md: '36px' }}
         bgColor="#f5f5f5"
         border="1px solid #f2f2f2"
         _hover={{ bgColor: '#009dff' }}

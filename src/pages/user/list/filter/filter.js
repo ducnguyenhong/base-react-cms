@@ -9,7 +9,11 @@ const UserFilter = () => {
   ];
 
   return (
-    <Grid templateColumns="repeat(4, 1fr)" gap={8} mt={5}>
+    <Grid
+      templateColumns={{ xs: 'repeat(1, 1fr)', md: 'repeat(3, 1fr)', lg: 'repeat(4, 1fr)' }}
+      gap={{ xs: 3, md: 6, lg: 8 }}
+      mt={{ xs: 2, lg: 5 }}
+    >
       <GridItem w="100%">
         <Search />
       </GridItem>

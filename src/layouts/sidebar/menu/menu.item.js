@@ -1,16 +1,27 @@
 import { Accordion, AccordionButton, AccordionItem, AccordionPanel, Box, Flex, Icon, Text } from '@chakra-ui/react';
-import { memo, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect, useState } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { showSidebarAtom } from 'state-manage/recoil';
+import { useMediaQuery } from 'utils/helper';
 
 const MenuItem = ({ item, level = 1 }) => {
   const { route, icon, title, subs } = item;
   const [showSubMenu, setShowSubMenu] = useState(false);
   const location = useLocation();
   const isActive = route && route === location.pathname;
-  const showSidebar = useRecoilValue(showSidebarAtom);
+  const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
+  const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
+
+  const onToggleShowMenu = useCallback(() => setShowSubMenu((prev) => !prev), [setShowSubMenu]);
+
+  const onClickRoute = useCallback(() => {
+    if (!isMobileAndTablet) {
+      return;
+    }
+    setShowSidebar((prev) => !prev);
+  }, [isMobileAndTablet, setShowSidebar]);
 
   useEffect(() => {
     if (!isActive) {
@@ -20,7 +31,7 @@ const MenuItem = ({ item, level = 1 }) => {
 
   if (route && !subs) {
     return (
-      <Link to={route} key={title}>
+      <Link to={route} key={title} onClick={onClickRoute}>
         <Flex
           bgColor={isActive ? 'main.2' : 'main.1'}
           _hover={{ bgColor: 'main.2' }}
@@ -86,7 +97,7 @@ const MenuItem = ({ item, level = 1 }) => {
           transitionDuration="250ms"
           data-group
           justifyContent={showSidebar ? 'space-between' : 'center'}
-          onClick={() => setShowSubMenu(!showSubMenu)}
+          onClick={onToggleShowMenu}
         >
           <Flex align="center" gap={showSidebar ? 3 : 0}>
             <Flex w="18px" pl={icon || !showSidebar ? 0 : 4} justify="center">

@@ -3,11 +3,14 @@ import Table from 'components/table';
 import { Action, Pagination } from 'components/table-control';
 import { memo, useCallback } from 'react';
 import { Link } from 'react-router-dom';
+import { useGetTableWidth } from 'utils/helper';
 import BirthDate from './custom-field/birth-date';
 import Contact from './custom-field/contact';
 import FullName from './custom-field/full-name';
 
 const UserTable = () => {
+  const tableWidth = useGetTableWidth();
+
   const header = [
     {
       title: '#',
@@ -69,7 +72,7 @@ const UserTable = () => {
   }, []);
 
   return (
-    <Box mt={16}>
+    <Box mt={{ xs: 4, lg: 16 }} w={tableWidth}>
       <Table
         header={header}
         data={data}

@@ -5,12 +5,13 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from 'react-icons/hi';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { showSidebarAtom } from 'state-manage/recoil';
+import { useMediaQuery } from 'utils/helper';
 import packageJson from '../../../package.json';
 import Menu from './menu';
 
 const Sidebar = () => {
   const [showSidebar, setShowSidebar] = useRecoilState(showSidebarAtom);
-
+  const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
   const onToggleSidebar = useCallback(() => setShowSidebar((prev) => !prev), [setShowSidebar]);
 
   return (
@@ -19,8 +20,9 @@ const Sidebar = () => {
       pos="fixed"
       top={0}
       left={0}
-      zIndex={10}
-      w={showSidebar ? 80 : 20}
+      overflow="hidden"
+      zIndex={200}
+      w={showSidebar ? 80 : isMobileAndTablet ? 0 : 20}
       h="100vh"
       bgColor="main.1"
       color="#f2f2f2"
@@ -28,7 +30,7 @@ const Sidebar = () => {
     >
       <Flex h="64px" w="full" bgColor="main.2" align="center" px={5} justify={showSidebar ? 'space-between' : 'center'}>
         {showSidebar && (
-          <Link to="/" style={{ width: 'auto', height: 'auto' }}>
+          <Link to="/" style={{ width: 'auto', height: 'auto' }} onClick={onToggleSidebar}>
             <Flex align="center" justify="center" gap={3} h="full">
               <Image src={Logo} boxSize={7} opacity={0.95} />
               <Heading as="h2" fontSize={18} fontWeight={600} noOfLines={1}>
