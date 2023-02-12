@@ -14,6 +14,7 @@ const BreakpointConfig = {
 const ColorConfig = {
   colors: {
     text: { 1: '#292D32', 2: '#828282' },
+    link: { 1: '#3699ff' },
     main: { 1: '#1E1E2D', 2: '#1A1A27', 0: '#29293d' }
   }
 };

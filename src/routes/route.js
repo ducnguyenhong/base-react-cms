@@ -2,7 +2,7 @@ import { Main } from 'layouts';
 import Example from 'pages/example';
 import Home from 'pages/home';
 import Login from 'pages/login';
-import { UserList } from 'pages/user';
+import { UserCreate, UserDetail, UserList } from 'pages/user';
 import { Route, Routes } from 'react-router-dom';
 
 const AppRoute = () => {
@@ -14,7 +14,9 @@ const AppRoute = () => {
 
         <Route path="users">
           <Route path="" element={<UserList />} />
-          <Route path=":id" element={<UserList />} />
+          <Route path="create" element={<UserCreate />} />
+          <Route path="edit/:id" element={<UserCreate />} />
+          <Route path="detail/:id" element={<UserDetail />} />
         </Route>
 
         <Route element={<Example />} path="page-level-3b" />

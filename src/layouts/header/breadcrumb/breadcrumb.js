@@ -42,7 +42,7 @@ const BreadCrumb = () => {
 
       {parentLevel1 && (
         <>
-          <Text as="span" fontWeight={500}>
+          <Text as="span" fontWeight={500} transitionDuration="200ms" _hover={{ color: 'link.1' }}>
             {compactTitle(parentLevel1.title)}
           </Text>
           <Icon as={HiChevronRight} fontSize={18} color="#999" />
@@ -51,7 +51,7 @@ const BreadCrumb = () => {
 
       {parentLevel2 && (
         <>
-          <Text as="span" fontWeight={500}>
+          <Text as="span" fontWeight={500} transitionDuration="200ms" _hover={{ color: 'link.1' }}>
             {compactTitle(parentLevel2.title)}
           </Text>
           <Icon as={HiChevronRight} fontSize={18} color="#999" />
@@ -59,7 +59,7 @@ const BreadCrumb = () => {
       )}
 
       <Link to={route}>
-        <Text as="span" fontWeight={600}>
+        <Text as="span" fontWeight={600} transitionDuration="200ms" _hover={{ color: 'link.1' }}>
           {compactTitle(title, true)}
         </Text>
       </Link>

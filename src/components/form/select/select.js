@@ -40,11 +40,13 @@ const Select = (props) => {
 };
 
 Select.propTypes = {
-  options: PropTypes.shape({
-    value: PropTypes.any.isRequired,
-    label: PropTypes.string.isRequired
-  }).isRequired,
-  onChange: PropTypes.func.isRequired, // (option | option[]) => void
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      value: PropTypes.any.isRequired,
+      label: PropTypes.string.isRequired
+    })
+  ).isRequired,
+  onChange: PropTypes.func, // (option | option[]) => void
   title: PropTypes.string,
   placeholder: PropTypes.string,
   isMulti: PropTypes.bool,

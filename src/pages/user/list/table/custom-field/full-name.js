@@ -1,10 +1,11 @@
-import { Flex, Image, Text } from '@chakra-ui/react';
+import { Flex, Icon, Image, Text } from '@chakra-ui/react';
 import ImgUserAvatar from 'assets/images/user-avatar.png';
 import { memo } from 'react';
+import { FaMars, FaVenus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 const FullName = ({ item }) => {
-  const { fullName, username, id, avatar } = item;
+  const { fullName, username, id, avatar, gender } = item;
 
   return (
     <Flex align="center" gap={2}>
@@ -14,11 +15,14 @@ const FullName = ({ item }) => {
 
       <Flex direction="column" gap={0.5}>
         <Link to={`/users/detail/${id}`}>
-          <Text as="span" fontWeight={600}>
+          <Text as="span" fontWeight={600} transitionDuration="200ms" _hover={{ color: 'link.1' }}>
             {fullName}
           </Text>
         </Link>
-        <Text color="#828282">@{username}</Text>
+        <Flex align="center" gap={2}>
+          <Text color="#828282">@{username}</Text>
+          <Icon as={gender === 'MALE' ? FaMars : FaVenus} color={gender === 'MALE' ? '#3277e7' : '#ff6666'} />
+        </Flex>
       </Flex>
     </Flex>
   );

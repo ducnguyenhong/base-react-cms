@@ -1,5 +1,6 @@
 import { Grid, GridItem } from '@chakra-ui/react';
-import { Search, Select } from 'components/table-control';
+import { Select } from 'components/form';
+import { Search } from 'components/table-control';
 import { memo } from 'react';
 
 const UserFilter = () => {

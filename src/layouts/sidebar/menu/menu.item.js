@@ -7,7 +7,7 @@ import { showSidebarAtom } from 'state-manage/recoil';
 import { useMediaQuery } from 'utils/helper';
 
 const MenuItem = ({ item, level = 1 }) => {
-  const { route, icon, title, subs } = item;
+  const { route, icon, title, subs, hidden } = item;
   const [showSubMenu, setShowSubMenu] = useState(false);
   const location = useLocation();
   const isActive = route && route === location.pathname;
@@ -28,6 +28,10 @@ const MenuItem = ({ item, level = 1 }) => {
       setShowSubMenu(isActive);
     }
   }, [isActive]);
+
+  if (hidden) {
+    return null;
+  }
 
   if (route && !subs) {
     return (

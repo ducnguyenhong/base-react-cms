@@ -4,7 +4,7 @@ import { memo } from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
-const ButtonCreate = (props) => {
+const LinkCreate = (props) => {
   const { route } = props;
   return (
     <Link to={route}>
@@ -27,8 +27,8 @@ const ButtonCreate = (props) => {
   );
 };
 
-ButtonCreate.propTypes = {
+LinkCreate.propTypes = {
   route: PropTypes.string.isRequired
 };
 
-export default memo(ButtonCreate);
+export default memo(LinkCreate);

@@ -24,6 +24,19 @@ const UserInfo = () => {
   const onLogout = useCallback(() => setToken(''), [setToken]);
   const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
 
+  const ROUTE_DATA = [
+    {
+      icon: FaBell,
+      title: 'Thông báo',
+      route: '/notifications'
+    },
+    {
+      icon: FaUserCircle,
+      title: 'Thông tin cá nhân',
+      route: '/profile'
+    }
+  ];
+
   return (
     <Popover placement="bottom-end">
       <PopoverTrigger>
@@ -44,39 +57,49 @@ const UserInfo = () => {
           )}
         </Button>
       </PopoverTrigger>
-      <PopoverContent w="350px">
-        <PopoverHeader>
-          <Flex align="center" gap={3} p={3}>
+      <PopoverContent w="350px" borderRadius={5} overflow="hidden">
+        <PopoverHeader p={0}>
+          <Flex align="center" gap={3} px={4} py={4} bgGradient="linear(to-r, #009dff, #007ecc)">
             <Image src="" fallbackSrc={ImgUserAvatar} boxSize={10} borderRadius="full" />
-            <Text as="span" fontWeight={600}>
+            <Text as="span" fontWeight={600} color="#FFF">
               Administrator
             </Text>
           </Flex>
         </PopoverHeader>
-        <PopoverBody>
-          <Flex direction="column" gap={2} px={3}>
-            <Link to="/profile">
-              <Flex align="center" py={2} gap={2}>
-                <Icon as={FaUserCircle} />
-                <Text as="span" mt={0.5} fontWeight={600}>
-                  Thông tin cá nhân
-                </Text>
-              </Flex>
-            </Link>
+        <PopoverBody p={0}>
+          <Flex direction="column">
+            {ROUTE_DATA.map((item) => {
+              const { route, title, icon } = item;
 
-            <Link to="/notifications">
-              <Flex align="center" py={2} gap={2}>
-                <Icon as={FaBell} />
-                <Text as="span" mt={0.5} fontWeight={600}>
-                  Thông báo
-                </Text>
-              </Flex>
-            </Link>
+              return (
+                <Link to={route} key={route}>
+                  <Flex
+                    align="center"
+                    py={3.5}
+                    px={4}
+                    gap={2}
+                    transitionDuration="300ms"
+                    _hover={{ bgColor: '#f2f2f2' }}
+                  >
+                    <Icon as={icon} />
+                    <Text as="span" mt={0.5} fontWeight={600}>
+                      {title}
+                    </Text>
+                  </Flex>
+                </Link>
+              );
+            })}
           </Flex>
         </PopoverBody>
         <PopoverFooter>
-          <Flex p={3}>
-            <Button colorScheme="red" onClick={onLogout}>
+          <Flex py={3} px={1.5}>
+            <Button
+              bgColor="#FFE2E5"
+              transitionDuration="250ms"
+              color="#E53E3E"
+              onClick={onLogout}
+              _hover={{ bgColor: '#E53E3E', color: '#FFF' }}
+            >
               Đăng xuất
             </Button>
           </Flex>

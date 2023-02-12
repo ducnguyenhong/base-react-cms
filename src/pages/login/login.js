@@ -92,6 +92,7 @@ const Login = () => {
                   <Input
                     type="text"
                     h="full"
+                    disabled={isLoading}
                     pr={10}
                     borderColor="#CCC"
                     _focus={{ border: 'none' }}
@@ -112,6 +113,7 @@ const Login = () => {
                     type={showPass ? 'text' : 'password'}
                     h="full"
                     pr={10}
+                    disabled={isLoading}
                     borderColor="#CCC"
                     _focus={{ border: 'none' }}
                     _hover={{ borderColor: '#b3b3b3' }}
@@ -148,6 +150,8 @@ const Login = () => {
                 mt={5}
                 fontSize={16}
                 h={12}
+                bgGradient="linear(to-r, #5a9bd8, #2768a5)"
+                transitionDuration="300ms"
               >
                 Đăng nhập
               </Button>

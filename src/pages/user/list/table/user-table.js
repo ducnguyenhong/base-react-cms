@@ -2,11 +2,11 @@ import { Box, Flex, Text } from '@chakra-ui/react';
 import Table from 'components/table';
 import { Action, Pagination } from 'components/table-control';
 import { memo, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import { useGetTableWidth } from 'utils/helper';
 import BirthDate from './custom-field/birth-date';
 import Contact from './custom-field/contact';
 import FullName from './custom-field/full-name';
+import Id from './custom-field/id';
 
 const UserTable = () => {
   const tableWidth = useGetTableWidth();
@@ -39,7 +39,7 @@ const UserTable = () => {
     fullName: 'Nguyễn Hồng Đức',
     username: 'protontech',
     avatar: '',
-    gender: 'MALE',
+    gender: item % 2 === 0 ? 'MALE' : 'FEMALE',
     birthDate: 944845200000,
     phone: '0376876191',
     email: 'protontechvn@gmail.com',
@@ -60,13 +60,7 @@ const UserTable = () => {
       return <FullName item={item} />;
     }
     if (field === 'id') {
-      return (
-        <Link to={`/users/detail/${item.id}`}>
-          <Text as="span" fontWeight={600}>
-            {item.id}
-          </Text>
-        </Link>
-      );
+      return <Id item={item} />;
     }
     return <Text>{item[field]}</Text>;
   }, []);

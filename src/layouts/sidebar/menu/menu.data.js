@@ -20,6 +20,21 @@ export const MENU_DATA = [
         route: '/users'
       },
       {
+        title: 'Tạo người dùng',
+        route: '/users/create',
+        hidden: true
+      },
+      {
+        title: 'Cập nhật người dùng',
+        route: '/users/update/:id',
+        hidden: true
+      },
+      {
+        title: 'Chi tiết người dùng',
+        route: '/users/detail/:id',
+        hidden: true
+      },
+      {
         title: 'Menu level 1',
         icon: FaHome,
         subs: [
