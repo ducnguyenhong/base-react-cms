@@ -43,7 +43,7 @@ const UserTable = () => {
     birthDate: 944845200000,
     phone: '0376876191',
     email: 'protontechvn@gmail.com',
-    address: 'Cầu Giấy, Ba Đình, Hà Nội'
+    address: 'Mai Dịch, Cầu Giấy, Hà Nội'
   }));
 
   const renderItem = useCallback((field, item) => {

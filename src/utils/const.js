@@ -9,3 +9,5 @@ export const MAIN_PADDING_X = {
   md: '30px', // required unit px
   lg: 8
 };
+
+export const DISABLE_ROUTE_PORTAL = ['/users/detail'];
