@@ -32,8 +32,16 @@ const Main = () => {
 
           {isMobileAndTablet && <BreadCrumb />}
 
-          <Box bgColor="#EEF0F8" px={showBackground ? BODY_PADDING : 2} py={showBackground ? BODY_PADDING : 3}>
-            <Box bgColor={showBackground ? '#FFF' : 'transparent'} minH="calc(100vh - 134px)" borderRadius={4}>
+          <Box
+            bgColor="#EEF0F8"
+            px={showBackground ? BODY_PADDING : { xs: 1, lg: 2 }}
+            py={showBackground ? BODY_PADDING : { xs: 1, md: 3 }}
+          >
+            <Box
+              bgColor={showBackground ? '#FFF' : 'transparent'}
+              minH={{ xs: 'calc(100vh - 71px)', md: 'calc(100vh - 85px)', lg: 'calc(100vh - 134px)' }}
+              borderRadius={4}
+            >
               <Section />
               <Box px={MAIN_PADDING_X} py={{ xs: 5, lg: 6 }}>
                 <Outlet />

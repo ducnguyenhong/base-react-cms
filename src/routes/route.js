@@ -16,7 +16,7 @@ const AppRoute = () => {
           <Route path="" element={<UserList />} />
           <Route path="create" element={<UserCreate />} />
           <Route path="edit/:id" element={<UserCreate />} />
-          <Route path="detail/:id" element={<UserDetail />} />
+          <Route path="detail/:id/*" element={<UserDetail />} />
         </Route>
 
         <Route element={<Example />} path="page-level-3b" />

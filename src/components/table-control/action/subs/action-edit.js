@@ -7,7 +7,7 @@ const ActionEdit = (props) => {
   const { item, route } = props;
 
   return (
-    <Link to={`/${route}/edit/${item.id}`}>
+    <Link to={`/${route}/detail/${item.id}/edit`}>
       <Flex
         bgColor="#e6e6e6"
         borderRadius={6}

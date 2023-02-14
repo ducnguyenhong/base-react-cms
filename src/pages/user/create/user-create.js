@@ -1,6 +1,7 @@
 import { Flex } from '@chakra-ui/react';
 import { ButtonCreate, ButtonEdit, DatePicker, FieldLabel, Input, Select, UploadImage } from 'components/form';
 import { useCallback } from 'react';
+import { Helmet } from 'react-helmet';
 import { FormProvider, useForm } from 'react-hook-form';
 import { useParams } from 'react-router-dom';
 
@@ -27,6 +28,9 @@ const UserCreate = () => {
 
   return (
     <Flex py={10}>
+      <Helmet>
+        <title>{id ? 'Chỉnh sửa' : 'Tạo mới'} người dùng | CMS Pro</title>
+      </Helmet>
       <FormProvider {...methods}>
         <form onSubmit={handleSubmit(onSubmit)} style={{ width: '100%' }}>
           <Flex w={{ xs: 'full', md: 2 / 3, lg: 1 / 3 }} direction="column" mx="auto" gap={10}>
