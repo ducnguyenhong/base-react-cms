@@ -17,7 +17,7 @@ Powered by [Proton Tech](https://protontech.vn/)
 ### Installation
 
 ```sh
-npm i
+npm install
 npm start
 ```
 
