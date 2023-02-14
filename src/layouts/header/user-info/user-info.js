@@ -9,7 +9,8 @@ import {
   PopoverFooter,
   PopoverHeader,
   PopoverTrigger,
-  Text
+  Text,
+  useDisclosure
 } from '@chakra-ui/react';
 import ImgUserAvatar from 'assets/images/user-avatar.png';
 import { memo, useCallback } from 'react';
@@ -23,6 +24,7 @@ const UserInfo = () => {
   const setToken = useSetRecoilState(tokenState);
   const onLogout = useCallback(() => setToken(''), [setToken]);
   const isMobileAndTablet = useMediaQuery('(max-width: 992px)');
+  const { isOpen, onToggle, onClose } = useDisclosure();
 
   const ROUTE_DATA = [
     {
@@ -38,7 +40,7 @@ const UserInfo = () => {
   ];
 
   return (
-    <Popover placement="bottom-end">
+    <Popover placement="bottom-end" isOpen={isOpen} onClose={onClose}>
       <PopoverTrigger>
         <Button
           h={{ xs: 10, lg: 14 }}
@@ -48,6 +50,7 @@ const UserInfo = () => {
           bgColor="#f7f7f8"
           border={{ xs: 'none', lg: '1px solid #f2f2f2' }}
           _hover={{ bgColor: '#f2f2f2' }}
+          onClick={onToggle}
         >
           <Image src="" fallbackSrc={ImgUserAvatar} boxSize={10} borderRadius="full" />
           {!isMobileAndTablet && (
@@ -72,7 +75,7 @@ const UserInfo = () => {
               const { route, title, icon } = item;
 
               return (
-                <Link to={route} key={route}>
+                <Link to={route} key={route} onClick={onClose}>
                   <Flex
                     align="center"
                     py={3.5}
