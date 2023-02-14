@@ -9,7 +9,15 @@ import { useMediaQuery } from 'utils/helper';
 const BreadCrumb = () => {
   const location = useLocation();
   const { pathname } = location;
-  const currentRoute = MENU_ROUTE_DATA.find((item) => item.route === pathname);
+  const currentRoute = MENU_ROUTE_DATA.find((item) => {
+    if (item.route === pathname) {
+      return true;
+    }
+    if (pathname.includes('/detail')) {
+      return item.route === `${pathname.split('/detail')[0]}/detail`;
+    }
+    return false;
+  });
   const isMobile = useMediaQuery('(max-width: 576px)');
 
   const compactTitle = useCallback(
@@ -25,11 +33,7 @@ const BreadCrumb = () => {
     [isMobile]
   );
 
-  if (!currentRoute) {
-    return null;
-  }
-
-  const { route, title, parent: parentLevel2 } = currentRoute;
+  const { route, title = '404', parent: parentLevel2 } = currentRoute || {};
   const parentLevel1 = parentLevel2?.parent;
 
   return (

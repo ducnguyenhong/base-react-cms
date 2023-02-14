@@ -25,13 +25,8 @@ export const MENU_DATA = [
         hidden: true
       },
       {
-        title: 'Cập nhật người dùng',
-        route: '/users/update/:id',
-        hidden: true
-      },
-      {
         title: 'Chi tiết người dùng',
-        route: '/users/detail/:id',
+        route: '/users/detail',
         hidden: true
       },
       {

@@ -1,6 +1,7 @@
 import { Box, Flex } from '@chakra-ui/react';
-import { BreadCrumb, Header, Section, Sidebar } from 'layouts';
+import { BreadCrumb, ErrorFallback, Header, Section, Sidebar } from 'layouts';
 import { memo, useCallback } from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { showSidebarAtom, tokenState } from 'state-manage/recoil';
@@ -44,7 +45,9 @@ const Main = () => {
             >
               <Section />
               <Box px={MAIN_PADDING_X} py={{ xs: 5, lg: 6 }}>
-                <Outlet />
+                <ErrorBoundary FallbackComponent={ErrorFallback}>
+                  <Outlet />
+                </ErrorBoundary>
               </Box>
             </Box>
           </Box>
